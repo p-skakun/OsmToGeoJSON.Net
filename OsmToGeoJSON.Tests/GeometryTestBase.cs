@@ -19,8 +19,8 @@ namespace OsmToGeoJSON.Tests
             {
 
 
-                Assert.That(coordinateSetList[i].Lat == ((GeographicPosition)coordinates[i]).Latitude);
-                Assert.That(coordinateSetList[i].Lon == ((GeographicPosition)coordinates[i]).Longitude);
+                Assert.That(coordinateSetList[i].Lat == ((Position)coordinates[i]).Latitude);
+                Assert.That(coordinateSetList[i].Lon == ((Position)coordinates[i]).Longitude);
 
             }
 
@@ -75,7 +75,7 @@ namespace OsmToGeoJSON.Tests
         protected void AssertFeaturePoint(Feature feature, double lat, double lon)
         {
             Assert.That(feature.Geometry.Type == GeoJSONObjectType.Point);
-            var position = ((GeographicPosition)((Point)feature.Geometry).Coordinates);
+            var position = ((Position)((Point)feature.Geometry).Coordinates);
             Assert.That(position.Latitude == lat);
             Assert.That(position.Longitude == lon);
         }
@@ -84,7 +84,7 @@ namespace OsmToGeoJSON.Tests
         {
             Assert.That(feature.Geometry.Type == GeoJSONObjectType.LineString);
             int index = 0;
-            foreach (var coordinate in ((LineString)feature.Geometry).Coordinates.Select(c => (GeographicPosition)c))
+            foreach (var coordinate in ((LineString)feature.Geometry).Coordinates.Select(c => (Position)c))
             {
                 Assert.That(coordinate.Latitude == coordinates[index].Lat);
                 Assert.That(coordinate.Longitude == coordinates[index].Lon);
@@ -101,7 +101,7 @@ namespace OsmToGeoJSON.Tests
                 int index = 0;
                 for (int i = 0; i < lineStrings.Coordinates.Count; i++)
                 {
-                    var coordinate = (GeographicPosition)lineStrings.Coordinates[i];
+                    var coordinate = (Position)lineStrings.Coordinates[i];
                     Assert.That(coordinate.Latitude == coordinates[index].Lat);
                     Assert.That(coordinate.Longitude == coordinates[index].Lon);
                     index++;
@@ -119,8 +119,8 @@ namespace OsmToGeoJSON.Tests
                 var coordinateSet = coordinateSetList[i];
                 for (int j = 0; j < coordinateSet.Count; j++)
                 {
-                    Assert.That(coordinateSet[j].Lat == ((GeographicPosition)(coordinates[i].Coordinates[0].Coordinates[j])).Latitude);
-                    Assert.That(coordinateSet[j].Lon == ((GeographicPosition)(coordinates[i].Coordinates[0].Coordinates[j])).Longitude);
+                    Assert.That(coordinateSet[j].Lat == ((Position)(coordinates[i].Coordinates[0].Coordinates[j])).Latitude);
+                    Assert.That(coordinateSet[j].Lon == ((Position)(coordinates[i].Coordinates[0].Coordinates[j])).Longitude);
                 }
             }
 
@@ -135,8 +135,8 @@ namespace OsmToGeoJSON.Tests
                 var coordinateSet = coordinateSetList[i];
                 for (int j = 0; j < coordinateSet.Count; j++)
                 {
-                    Assert.That(coordinateSet[j].Lat == ((GeographicPosition)coordinates[i].Coordinates[j]).Latitude);
-                    Assert.That(coordinateSet[j].Lon == ((GeographicPosition)coordinates[i].Coordinates[j]).Longitude);
+                    Assert.That(coordinateSet[j].Lat == ((Position)coordinates[i].Coordinates[j]).Latitude);
+                    Assert.That(coordinateSet[j].Lon == ((Position)coordinates[i].Coordinates[j]).Longitude);
                 }
             }
 

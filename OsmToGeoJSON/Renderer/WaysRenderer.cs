@@ -67,8 +67,7 @@ namespace OsmToGeoJSON.Renderer
                 }
 
                 
-                var feature = new Feature(geometry, _featurePropertyBuilder.GetProperties(way));
-                feature.Id = string.Format("{0}/{1}", way.Type, way.Id);
+                var feature = new Feature(geometry, _featurePropertyBuilder.GetProperties(way), $"{way.Type}/{way.Id}");
                 features.Add(feature);
             }
             return features;
@@ -76,7 +75,7 @@ namespace OsmToGeoJSON.Renderer
 
         private IGeometryObject GetPointFor(Node node)
         {
-            return new Point(new GeographicPosition(node.Lat.Value, node.Lon.Value));
+            return new Point(new Position(node.Lat.Value, node.Lon.Value));
         }
 
         private IGeometryObject GetGeometryForCoordinates(List<Coordinates> coordinates, Way way)
@@ -167,13 +166,13 @@ namespace OsmToGeoJSON.Renderer
 
         private static IGeometryObject ConverToLineString(List<Coordinates> coordinates)
         {
-            return new LineString(coordinates.Select(c => new GeographicPosition(c.Lat, c.Lon)).ToList<IPosition>());
+            return new LineString(coordinates.Select(c => new Position(c.Lat, c.Lon)).ToList<IPosition>());
         }
 
         private static Polygon ConvertToPolygon(List<Coordinates> coordinates)
         {
             var lineString =
-                new LineString(coordinates.Select(c => new GeographicPosition(c.Lat, c.Lon)).ToList<IPosition>());
+                new LineString(coordinates.Select(c => new Position(c.Lat, c.Lon)).ToList<IPosition>());
             return new Polygon(new[] { lineString }.ToList());
         }
     }

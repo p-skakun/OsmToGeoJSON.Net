@@ -97,7 +97,7 @@ namespace OsmToGeoJSON.Renderer
 
             IGeometryObject geometryObject = clusters.Count == 1 ? ConvertToPolygon(clusters[0]) : ConvertToMultiPolygon(clusters);
             var properties = _featurePropertyBuilder.GetProperties(element);
-            return new Feature(geometryObject, properties) { Id = string.Format("{0}/{1}", multiPolygonGeoemtryType, element.Id) };
+            return new Feature(geometryObject, properties, $"{multiPolygonGeoemtryType}/{element.Id}");
         }
 
         private static IGeometryObject ConvertToMultiPolygon(List<Cluster> clusters)
@@ -115,7 +115,7 @@ namespace OsmToGeoJSON.Renderer
             var lines = new List<LineString>();
             foreach (var ring in cluster)
             {
-                lines.Add(new LineString(ring.Select(n => new GeographicPosition(n.Lat.Value, n.Lon.Value)).ToList<IPosition>()));
+                lines.Add(new LineString(ring.Select(n => new Position(n.Lat.Value, n.Lon.Value)).ToList<IPosition>()));
             }
             return new Polygon(lines);
         }
@@ -125,7 +125,7 @@ namespace OsmToGeoJSON.Renderer
             var polygons = new List<Polygon>();
             foreach (var ring in cluster)
             {
-                polygons.Add(new Polygon((new [] { new LineString(ring.Select(n => new GeographicPosition(n.Lat.Value, n.Lon.Value)).ToList<IPosition>())}).ToList()));
+                polygons.Add(new Polygon((new [] { new LineString(ring.Select(n => new Position(n.Lat.Value, n.Lon.Value)).ToList<IPosition>())}).ToList()));
             }
             return polygons;
         }

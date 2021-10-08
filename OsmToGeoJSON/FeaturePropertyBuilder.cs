@@ -14,7 +14,7 @@ namespace OsmToGeoJSON
             props.Add("type", element.Type);
             props.Add("id", element.Id);
             props.Add("tags", JsonConvert.SerializeObject(new Dictionary<string, object>(element.Tags.OrderBy(x => x.Key).ToDictionary(x => x.Key, x=> x.Value))));
-            var settings = new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new KeyValuePairConverterCustom() } };
+            var settings = new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore };
             var relations = GetRelations(element);
             props.Add("relations", JsonConvert.SerializeObject(relations , settings));
             props.Add("meta", JsonConvert.SerializeObject(BuildMeta(element)));

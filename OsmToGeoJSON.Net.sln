@@ -1,21 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OsmToGeoJSON", "OsmToGeoJSON\OsmToGeoJSON.csproj", "{BFB041B7-1173-4F12-8317-6DE2CBFA1925}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OsmToGeoJSON", "OsmToGeoJSON\OsmToGeoJSON.csproj", "{2040005F-9EC5-4DF9-9D34-E345295AADFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OsmToGeoJSON.Tests", "OsmToGeoJSON.Tests\OsmToGeoJSON.Tests.csproj", "{97977393-3A95-457A-A330-D5B636E81A73}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{B8786EF0-4391-44B7-97DC-772C7DD8E941}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\install.ps1 = .nuget\install.ps1
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-		.nuget\OsmToGeoJSON.nuspec = .nuget\OsmToGeoJSON.nuspec
-		.nuget\pack.ps1 = .nuget\pack.ps1
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OsmToGeoJSON.Tests", "OsmToGeoJSON.Tests\OsmToGeoJSON.Tests.csproj", "{0D75AEEF-15FF-45E3-8AEF-616AC240FD87}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,16 +10,13 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BFB041B7-1173-4F12-8317-6DE2CBFA1925}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BFB041B7-1173-4F12-8317-6DE2CBFA1925}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BFB041B7-1173-4F12-8317-6DE2CBFA1925}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BFB041B7-1173-4F12-8317-6DE2CBFA1925}.Release|Any CPU.Build.0 = Release|Any CPU
-		{97977393-3A95-457A-A330-D5B636E81A73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{97977393-3A95-457A-A330-D5B636E81A73}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{97977393-3A95-457A-A330-D5B636E81A73}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{97977393-3A95-457A-A330-D5B636E81A73}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
+		{2040005F-9EC5-4DF9-9D34-E345295AADFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2040005F-9EC5-4DF9-9D34-E345295AADFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2040005F-9EC5-4DF9-9D34-E345295AADFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2040005F-9EC5-4DF9-9D34-E345295AADFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D75AEEF-15FF-45E3-8AEF-616AC240FD87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D75AEEF-15FF-45E3-8AEF-616AC240FD87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D75AEEF-15FF-45E3-8AEF-616AC240FD87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D75AEEF-15FF-45E3-8AEF-616AC240FD87}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

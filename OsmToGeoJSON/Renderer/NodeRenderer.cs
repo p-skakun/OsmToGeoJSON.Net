@@ -29,7 +29,7 @@ namespace OsmToGeoJSON.Renderer
                     !node.HasInterestingTags) continue;
                 if (!node.Lat.HasValue || !node.Lon.HasValue) continue;
                 if (node.IsBounds|| node.IsAGeometryNode) continue;
-                var point = new Point(new GeographicPosition(node.Lat.Value, node.Lon.Value));
+                var point = new Point(new Position(node.Lat.Value, node.Lon.Value));
                 var feature = new Feature(point, _featurePropertyBuilder.GetProperties(node), string.Format("{0}/{1}", node.Type, node.Id));
                 if (node.IsCentrePlaceHolder) feature.Properties["geometry"] = "center";
                 features.Add(feature);
